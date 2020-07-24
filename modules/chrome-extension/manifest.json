@@ -1,0 +1,31 @@
+{
+    "name": "Sentify: Filter Negative Tweets",
+    "version": "1.0",
+    "description": "Sentify is a Chrome extension that filters negative Tweets so that you can enjoy everything nice.",
+    "permissions": [
+        "tabs"
+    ],
+    "manifest_version": 2,
+    "content_scripts": [
+        {
+            "matches": [
+                "https://twitter.com/home"
+            ],
+            "js": ["jquery-3.5.1.min.js", "content.js"]
+        }
+    ],
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "browser_action": {
+        "default_icon": "images/get_started16.png",
+        "default_popup": "popup.html",
+        "default_title": "A popup will come here"
+    },
+    "icons": {
+        "16": "images/get_started16.png",
+        "32": "images/get_started32.png",
+        "48": "images/get_started48.png",
+        "128": "images/get_started128.png"
+    }
+}
