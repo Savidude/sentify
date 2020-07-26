@@ -1,13 +1,6 @@
-console.log("Background running");
+removedTweetText = [];
 
-chrome.browserAction.onClicked.addListener(buttonClicked);
-
-function buttonClicked(tab) {
-    console.log("Button clicked!");
-    console.log(tab);
-
-    let msg = {
-        text: "hello"
-    }
-    chrome.tabs.sendMessage(tab.id, msg);
-}
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+    console.log(request.text);
+    removedTweetText.push(request.text);
+});

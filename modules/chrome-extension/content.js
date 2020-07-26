@@ -79,9 +79,14 @@ function removeNegativeContent(contentMapping, classificationResults) {
             if (tweetHTML.childNodes.length > 0) {
                 console.log("Removed tweet: " + tweetContent.text);
                 tweetHTML.firstElementChild.remove();
+                saveRemovedTweet(tweetContent);
             }
         } else {
             nonNegativeText.push(tweetContent.text);
         }
     });
+}
+
+function saveRemovedTweet(tweetContent) {
+    chrome.runtime.sendMessage(tweetContent);
 }
